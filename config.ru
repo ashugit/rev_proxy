@@ -6,8 +6,7 @@ use Rack::ReverseProxy do
     opts = {:preserve_host => true})    
 end
 
-app = proc do |env|
-  [ 200, {'Content-Type' => 'text/plain'}, "b" ]
+app = proc do |env|  
 end
 
 run app
