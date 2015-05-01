@@ -1,8 +1,9 @@
 require 'rack/reverse_proxy'
 
 use Rack::ReverseProxy do
-  reverse_proxy_options :preserve_host => true
-  reverse_proxy '/', 'www.danielvivar.com/typeless/contacts.html'
+  reverse_proxy(/^\/prototypes(\/.*)$/,
+    'http://www.danielvivar.com/typeless/contacts.html',
+    opts = {:preserve_host => true})
 end
 
 app = proc do |env|
