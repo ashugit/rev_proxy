@@ -1,7 +1,7 @@
 require 'rack/reverse_proxy'
 
 use Rack::ReverseProxy do
-  reverse_proxy(/^\/prototypes(\/.*)$/,
+  reverse_proxy(/^\/typeless(\/.*)$/,
     'http://www.danielvivar.com/typeless/contacts.html',
     opts = {:preserve_host => true})
 end
